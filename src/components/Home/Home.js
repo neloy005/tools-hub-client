@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import banner from '../../images/banner2.jpg';
+import Tools from '../Tools/Tools';
 
 const Home = () => {
+    const [tools, setTools] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/tools')
+            .then(res => res.json())
+            .then(data => setTools(data))
+    }, [])
+
     return (
         <div>
             <div className='banner'>
@@ -17,6 +25,15 @@ const Home = () => {
             </div>
             <hr />
 
+
+            <div>
+                {
+                    tools.map(tool => <Tools
+                        key={tool._id}
+                        tool={tool}
+                    ></Tools>)
+                }
+            </div>
         </div>
     );
 };
