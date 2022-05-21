@@ -1,0 +1,49 @@
+.banner-container-bg {
+    background-color: black;
+}
+
+.banner-container img {
+    width: 100%;
+    opacity: 82%;
+}
+
+
+.banner h2 {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    font-size: 81px;
+    font-weight: 700;
+    /* color: white; */
+    transform: translate(-50%, -50%);
+}
+
+.banner h1 {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    /* color: white; */
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 688px) {
+
+    .banner-container img,
+    .banner-container-bg {
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .banner h2 {
+        position: relative;
+        color: black;
+        margin-top: 30px;
+        font-size: 38px;
+    }
+
+    .banner h1 {
+        position: relative;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+}
