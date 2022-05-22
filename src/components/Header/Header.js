@@ -4,8 +4,10 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import './Header.css';
 
 const Header = () => {
+
     const [user] = useAuthState(auth);
     console.log(user);
 
@@ -26,7 +28,10 @@ const Header = () => {
                     <Nav>
                         {
                             user ?
-                                <Nav.Link onClick={handleSignOut} className='btn btn-success'>Logout</Nav.Link>
+                                <div className='active-user'>
+                                    <p style={{ 'marginBottom': '0', 'color': 'white' }}>{user.displayName}</p>
+                                    <Nav.Link onClick={handleSignOut} className='btn btn-success'>Logout</Nav.Link>
+                                </div>
                                 :
                                 <Nav.Link className='btn btn-danger' as={Link} to='/login'>Login</Nav.Link>
                         }

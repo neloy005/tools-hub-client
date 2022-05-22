@@ -1,12 +1,56 @@
+.login-heading {
+    margin-top: 50px;
+    font-weight: 250;
+    margin-bottom: 40px;
+}
+
+.login-container input:not([type="submit"]) {
+    width: 250px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: .2px solid gray;
+    padding-left: 8px;
+    border-radius: 12px;
+}
+
+.submit-btn {
+    width: 250px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 250;
+}
+
 .google-signin-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid blueviolet;
-    border-radius: 7px;
-    padding: 6.5px;
+    border: .2px solid blueviolet;
+    width: 250px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 12px;
     margin: auto;
-    width: 16%;
     cursor: pointer;
+    font-weight: 500;
+    transition: border .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+}
 
+.google-signin-container:hover {
+    border: .2px solid black;
+    background-color: #d1a2dd;
+    color: white;
+    transition: border .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+
+@media only screen and (max-width: 688px) {
+
+    .login-container input:not([type="submit"]),
+    .submit-btn {
+        width: 200px;
+    }
+
+    .google-signin-container {
+        width: 60%;
+    }
 }
