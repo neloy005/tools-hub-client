@@ -1,3 +1,7 @@
+.banner {
+    margin-bottom: 100px;
+}
+
 .banner-container-bg {
     background-color: black;
 }
@@ -6,7 +10,6 @@
     width: 100%;
     opacity: 82%;
 }
-
 
 .banner h2 {
     position: absolute;
@@ -24,6 +27,20 @@
     left: 50%;
     /* color: white; */
     transform: translate(-50%, -50%);
+}
+
+.tools-card-headline {
+    margin-bottom: 45px;
+    font-size: 34px;
+    font-weight: 250;
+}
+
+.card-container {
+    margin-left: 60px;
+    margin-right: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
 }
 
 @media only screen and (max-width: 688px) {
