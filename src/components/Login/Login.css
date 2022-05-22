@@ -1,0 +1,12 @@
+.google-signin-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid blueviolet;
+    border-radius: 7px;
+    padding: 6.5px;
+    margin: auto;
+    width: 16%;
+    cursor: pointer;
+
+}
