@@ -1,0 +1,21 @@
+.footer-container {
+    min-height: 200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #1b1d23;
+    color: white;
+    padding-top: 25px;
+}
+
+.footer-link-container {
+    margin-bottom: 10px;
+}
+
+.footer-link-container a {
+    margin-right: 8px;
+    text-decoration: none;
+}
+
+.footer-container img {
+    margin-right: 8px;
+}
