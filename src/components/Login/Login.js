@@ -1,24 +1,47 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './Login.css';
 import google from '../../images/icons/google.png'
 import { useForm } from 'react-hook-form';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    let errorMessage;
     const navigate = useNavigate();
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [
+        signInWithGoogle,
+        googleUser,
+        googleLoading,
+        googleError
+    ] = useSignInWithGoogle(auth);
 
-    if (user) {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    if (user || googleUser) {
         navigate('/');
     }
-
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
+    if (error || googleError) {
+        errorMessage = <p style={{ 'color': 'red' }}>Error: {error?.message}{googleError?.message}</p>
+    }
     const onSubmit = data => {
         console.log(data);
         const email = data.email;
         const password = data.password;
+        signInWithEmailAndPassword(email, password);
+    }
+    const handleResetPassword = async () => {
+        navigate('/resetpassword');
     }
     return (
         <div style={{ 'minHeight': '650px' }}>
@@ -70,7 +93,10 @@ const Login = () => {
 
                 <input className='submit-btn' type="submit" value='Login' />
             </form>
+            {errorMessage}
             <p>New here? <Link to='/register'>Please register first</Link></p>
+
+            <p>Forgot password? <span onClick={handleResetPassword} style={{ 'color': 'blue', 'cursor': 'pointer' }}>Reset now!</span></p>
             <h4>Or</h4>
             <br />
             <div className='google-signin-container' onClick={() => signInWithGoogle()}>

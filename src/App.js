@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import { ToastContainer } from 'react-toastify';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -19,10 +21,12 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
