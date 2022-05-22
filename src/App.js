@@ -9,6 +9,8 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import { ToastContainer } from 'react-toastify';
 import ResetPassword from './components/ResetPassword/ResetPassword';
+import Purchase from './components/Purchase/Purchase';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -23,6 +25,11 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+        <Route path='/purchase/:id' element={
+          <RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>
+        }></Route>
       </Routes>
 
       <Footer></Footer>

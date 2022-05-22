@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Tools.css';
 
 const Tools = ({ tool }) => {
-    const { name, description, price, image, minOrder, available } = tool;
+    const navigate = useNavigate();
+    const { _id, name, description, price, image, minOrder, available } = tool;
+
+    const navigateToPurchase = id => {
+        navigate(`/purchase/${id}`);
+
+    }
     return (
         <div className='single-card'>
             <img src={image} alt="" />
@@ -15,7 +22,7 @@ const Tools = ({ tool }) => {
                 <p>Available <br /><span style={{ 'fontSize': '30px' }}>{available}</span><br /> pieces</p>
             </div>
             <hr />
-            <button className='submit-btn'>Place Order</button>
+            <button onClick={() => navigateToPurchase(_id)} className='submit-btn'>Place Order</button>
         </div>
     );
 };
