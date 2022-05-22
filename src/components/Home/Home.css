@@ -29,6 +29,27 @@
     transform: translate(-50%, -50%);
 }
 
+.business-summary-container {
+    margin-left: 80px;
+    margin-right: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+    margin-bottom: 150px;
+}
+
+.business-summary-container div {
+    background-color: #d1a2dd;
+    padding: 22px;
+    border-radius: 25px;
+    /* width: 75%; */
+}
+
+.business-summary-container img {
+    width: 20%;
+}
+
+
 .tools-card-headline {
     margin-bottom: 45px;
     font-size: 34px;
@@ -62,5 +83,17 @@
         position: relative;
         font-size: 20px;
         font-family: sans-serif;
+    }
+
+    .business-summary-container {
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 30px;
+        margin-right: 30px;
     }
 }
