@@ -57,6 +57,8 @@ const Purchase = () => {
         const address = event.target.address.value;
         const phone = event.target.phone.value;
         const toPay = quantity * tool.price;
+        const newAvailableCount = availableCount - quantity;
+        setAvailableCount(newAvailableCount);
         const order = {
             toolId: id,
             name: user.displayName,
@@ -81,6 +83,25 @@ const Purchase = () => {
                 toast.success('Order placed successfully');
                 event.target.reset();
             })
+
+        //...................................
+        // Upding available quantity in DB 
+        //...................................
+        const updatedAvailable = { available: newAvailableCount };
+        const url = `http://localhost:5000/tool/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedAvailable)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+            })
+
+
     }
     return (
         <div>
