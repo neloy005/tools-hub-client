@@ -11,6 +11,9 @@ import { ToastContainer } from 'react-toastify';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import Purchase from './components/Purchase/Purchase';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Dashboard from './components/Dashboard/Dashboard';
+import MyOrders from './components/MyOrders/MyOrders';
+import AddAReview from './components/AddAReview/AddAReview';
 
 function App() {
   return (
@@ -25,11 +28,21 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+
         <Route path='/purchase/:id' element={
           <RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='review' element={<AddAReview></AddAReview>}></Route>
+        </Route>
       </Routes>
 
       <Footer></Footer>

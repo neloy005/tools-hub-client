@@ -1,0 +1,17 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(1, .8fr 2fr);
+}
+
+.dashboard-links {
+    background-color: rgb(218, 197, 238);
+    padding-top: 20px;
+}
+
+.dashboard-links a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}

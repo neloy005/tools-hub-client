@@ -66,7 +66,8 @@ const Purchase = () => {
             quantity: quantity,
             address: address,
             phone: phone,
-            toPay: toPay
+            toPay: toPay,
+            isPaid: false
         }
         console.log(order);
 
