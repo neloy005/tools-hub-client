@@ -5,6 +5,7 @@ import './Login.css';
 import google from '../../images/icons/google.png'
 import { useForm } from 'react-hook-form';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -28,8 +29,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-
-    if (user || googleUser) {
+    const [token] = useToken(user || googleUser);
+    if (token) {
         navigate(from, { replace: true });
     }
 

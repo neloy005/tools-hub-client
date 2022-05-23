@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Loading/Loading';
 
 const Register = () => {
+    let registerError;
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
-    let errorMsg;
     const [
         createUserWithEmailAndPassword, user, loading, error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [updateProfile] = useUpdateProfile(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user);
 
 
     const handleCreateNewUSer = async (event) => {
@@ -29,11 +32,14 @@ const Register = () => {
         await updateProfile({ displayName: name });
     }
 
-    if (user) {
+    if (token) {
         navigate('/');
     }
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>;
+    }
+    if (error || updateError) {
+        registerError = <p style={{ 'color': 'red' }}><small>{error?.message || updateError?.message}</small></p>
     }
     return (
         <div>
@@ -43,6 +49,7 @@ const Register = () => {
                 <input type="email" name='email' placeholder='Your email' required /> <br /> <br />
                 <input type="password" name='password' placeholder='Your password' required /> <br /> <br />
                 <p style={{ 'color': 'red' }}><small>{errorMessage}</small></p>
+                {registerError}
                 <input className='submit-btn' type="submit" value='Register' />
             </form>
             <p>Already have an account? <Link to='/login'>Please login</Link></p>
