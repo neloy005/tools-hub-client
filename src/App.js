@@ -14,6 +14,7 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Dashboard from './components/Dashboard/Dashboard';
 import MyOrders from './components/MyOrders/MyOrders';
 import AddAReview from './components/AddAReview/AddAReview';
+import Payment from './components/Payment/Payment';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         }>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddAReview></AddAReview>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
         </Route>
       </Routes>
 

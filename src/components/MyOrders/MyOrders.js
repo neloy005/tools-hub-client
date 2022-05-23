@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table, Modal } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -84,9 +85,10 @@ const MyOrders = () => {
                                             </Modal.Footer>
                                         </Modal>
                                     </><span> Or </span>
-                                        <Button variant="success" size="sm">
+                                        <Link to={`/dashboard/payment/${order._id}`}><Button variant="success" size="sm">
                                             Pay
-                                        </Button></>
+                                        </Button></Link>
+                                    </>
                                 }</td>
                             </tr>)
                     }
