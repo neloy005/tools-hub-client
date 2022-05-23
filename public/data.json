@@ -4,8 +4,8 @@
         "image": "https://i.ibb.co/9qqNg7Y/screwdriver.jpg",
         "description": "Our screwdrivers are made with best quality raw products. The iron head will never torn. And hundreds of sellers buy from us.",
         "price": 120,
-        "minOrder": 1000,
-        "available": 2500,
+        "minOrder": 90,
+        "available": 1000,
         "sold": 7000
     },
     {
@@ -13,16 +13,16 @@
         "image": "https://i.ibb.co/BtRcQL7/bolts-nuts.jpg",
         "description": "Made with the same quality iron as our other products. Industry grade iron gives our nuts and bolts smoothest finish. Nuts and Bolts pair is provided together.",
         "price": 80,
-        "minOrder": 1200,
-        "available": 5000,
+        "minOrder": 65,
+        "available": 1200,
         "sold": 8000
     },
     {
         "name": "Hammer",
         "image": "https://i.ibb.co/dGShh67/hammer.jpg",
         "description": "We provide life long warrenty for our hammers. Because we know and believe the way we make them will last you life long.",
-        "price": 200,
-        "minOrder": 500,
+        "price": 180,
+        "minOrder": 70,
         "available": 1500,
         "sold": 3000
     },
@@ -30,9 +30,9 @@
         "name": "Tape measure",
         "image": "https://i.ibb.co/MfZK5Fn/tape.jpg",
         "description": "Build with the combination of plustic and metal sheet. 100% accurate measurements can be taken using our measung tape. Comes in meter scale only.",
-        "price": 350,
-        "minOrder": 500,
-        "available": 2500,
+        "price": 120,
+        "minOrder": 50,
+        "available": 1300,
         "sold": 3500
     },
     {
@@ -40,7 +40,7 @@
         "image": "https://i.ibb.co/T0s2bqM/brush.jpg",
         "description": "Best quality wood and fiber has been used in order to make our paint brushes. The finish our brush gives is always smooth and its good for multiple rough use.",
         "price": 225,
-        "minOrder": 1000,
+        "minOrder": 55,
         "available": 3000,
         "sold": 3500
     },
@@ -48,8 +48,8 @@
         "name": "Hacksaw",
         "image": "https://i.ibb.co/C8YDVPz/hacksaw.jpg",
         "description": "Made using thick metal sheet. Very good and useful for rough long time use. Blades are shaped in way to last long. And build quality is strong.",
-        "price": 500,
-        "minOrder": 500,
+        "price": 120,
+        "minOrder": 70,
         "available": 3500,
         "sold": 3000
     },
@@ -57,8 +57,8 @@
         "name": "Wrench",
         "image": "https://i.ibb.co/p0RLX5W/wrench.jpg",
         "description": "Wrench is a most common tool used with screq drivers.Our wrenches come in a set of different size. You've to buy them in bulk to get the best possible price.",
-        "price": 450,
-        "minOrder": 500,
+        "price": 150,
+        "minOrder": 60,
         "available": 2000,
         "sold": 3000
     }
