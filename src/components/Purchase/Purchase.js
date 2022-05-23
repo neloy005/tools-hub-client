@@ -61,6 +61,7 @@ const Purchase = () => {
         setAvailableCount(newAvailableCount);
         const order = {
             toolId: id,
+            toolName: tool.name,
             name: user.displayName,
             email: user.email,
             quantity: quantity,
