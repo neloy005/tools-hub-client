@@ -7,6 +7,7 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const { email, toolName, quantity, toPay, status } = order;
 
     const handleDeleteOrder = id => {
         console.log(id);
@@ -27,12 +28,12 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
     return (
         <tr>
             <td>{index}</td>
-            <td>{order.email}</td>
-            <td>{order.toolName}</td>
-            <td>{order.quantity}</td>
-            <td>${order.toPay}</td>
+            <td>{email}</td>
+            <td>{toolName}</td>
+            <td>{quantity}</td>
+            <td>${toPay}</td>
             <td>{
-                order.status === 'pending' ?
+                status === 'pending' ?
                     <Button variant="success" size="sm">
                         {order.status}
                     </Button>
@@ -41,7 +42,7 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
                         <span style={{ 'color': 'white' }}>Unpaid </span>
 
                         <Button variant="danger" size="sm" onClick={handleShow}>
-                            Cancel{order._id}
+                            Cancel
                         </Button>
                         <Modal show={show} onHide={order} animation={false}>
                             <Modal.Header>
@@ -50,7 +51,7 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
 
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleClose}>
-                                    Close{order._id}
+                                    Close
                                 </Button>
                                 <Button variant="danger" onClick={() => handleDeleteOrder(order._id)}>
                                     Yes

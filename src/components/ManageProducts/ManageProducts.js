@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import ManageSingleTool from '../ManageSingleTool/ManageSingleTool';
 const ManageProducts = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
@@ -9,21 +10,6 @@ const ManageProducts = () => {
             .then(data => setTools(data))
     }, [])
 
-    const handleDeleteTool = id => {
-        console.log(id);
-        const url = `http://localhost:5000/tool/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    toast.success('Deleted successfully!');
-                    const remaining = tools.filter(tool => tool._id !== id);
-                    setTools(remaining);
-                }
-            })
-    }
     return (
         <div>
             <h2>{tools.length} types of tools available in the shop!</h2>
@@ -40,19 +26,13 @@ const ManageProducts = () => {
                 </thead>
                 <tbody>
                     {
-                        tools.map((tool, index) =>
-                            <tr
-                                key={tool._id}
-                            >
-                                <td>{index + 1}</td>
-                                <td>{tool.name}</td>
-                                <td>{tool.available}</td>
-                                <td>{tool.price}</td>
-                                <td><Button onClick={() => handleDeleteTool(tool._id)} variant="danger" size="sm">
-                                    Delete
-                                </Button></td>
-
-                            </tr>)
+                        tools.map((tool, index) => <ManageSingleTool
+                            key={tool._id}
+                            index={index + 1}
+                            tool={tool}
+                            tools={tools}
+                            setTools={setTools}
+                        ></ManageSingleTool>)
                     }
                 </tbody>
             </Table>
