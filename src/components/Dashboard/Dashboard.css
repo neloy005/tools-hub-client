@@ -6,6 +6,7 @@
 .dashboard-links {
     background-color: rgb(218, 197, 238);
     padding-top: 20px;
+    width: 100%;
 }
 
 .dashboard-links a {
@@ -19,5 +20,13 @@
 @media only screen and (max-width: 688px) {
     .dashboard {
         grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .dashboard {
+        grid-template-columns: repeat(1, 100%);
+
     }
 }

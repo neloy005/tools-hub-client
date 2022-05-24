@@ -6,10 +6,11 @@ const Dashboard = () => {
     return (
         <div className='dashboard'>
             <div className='dashboard-links'>
-                <Link to='/dashboard'>My Orders</Link>
-                <Link to='/dashboard/review'>Add a review</Link>
+                <Link to='/dashboard'>My Orders</Link> <hr />
+                <Link to='/dashboard/review'>Add a review</Link><hr />
+                <Link to='/dashboard/myprofile'>My profile</Link><hr />
             </div>
-            <div>
+            <div style={{ 'width': '100%' }}>
                 <h2 className='login-heading'>Dashboard</h2>
                 <Outlet></Outlet>
             </div>
