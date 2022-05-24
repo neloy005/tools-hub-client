@@ -66,7 +66,9 @@ const MyOrders = () => {
                                 <td>{order.quantity}</td>
                                 <td>${order.toPay}</td>
                                 <td>{
-                                    order.isPaid ? '' : <><>
+                                    order.isPaid ? <>
+                                        <p style={{ 'color': 'green' }}><small>Paid<br />{order.transectionId}</small></p>
+                                    </> : <><>
                                         <Button variant="danger" size="sm" onClick={handleShow}>
                                             Cancel
                                         </Button>
