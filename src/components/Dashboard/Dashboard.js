@@ -9,6 +9,8 @@ const Dashboard = () => {
                 <Link to='/dashboard'>My Orders</Link> <hr />
                 <Link to='/dashboard/review'>Add a review</Link><hr />
                 <Link to='/dashboard/myprofile'>My profile</Link><hr />
+                <Link to='/dashboard/manageallorders'>Manage Orders</Link><hr />
+                <Link to='/dashboard/allusers'>All users</Link><hr />
             </div>
             <div style={{ 'width': '100%' }}>
                 <h2 className='login-heading'>Dashboard</h2>

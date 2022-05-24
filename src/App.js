@@ -16,6 +16,8 @@ import MyOrders from './components/MyOrders/MyOrders';
 import AddAReview from './components/AddAReview/AddAReview';
 import Payment from './components/Payment/Payment';
 import MyProfile from './components/MyProfile/MyProfile';
+import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
+import AllUsers from './components/AllUsers/AllUsers';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
           <Route path='review' element={<AddAReview></AddAReview>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path='allusers' element={<AllUsers></AllUsers>}></Route>
         </Route>
       </Routes>
 

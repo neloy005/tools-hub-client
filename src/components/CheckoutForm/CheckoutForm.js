@@ -77,7 +77,8 @@ const CheckoutForm = ({ order }) => {
             //store payment of DB
             const payment = {
                 orderId: _id,
-                transectionId: paymentIntent.id
+                transectionId: paymentIntent.id,
+                status: 'pending'
             }
             fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
@@ -119,7 +120,6 @@ const CheckoutForm = ({ order }) => {
             {
                 success && <div style={{ 'color': 'green' }}>
                     <p>{success}</p>
-                    <p>Transection Id: <span style={{ 'color': 'black' }}>{transectionId}</span></p>
                 </div>
             }
             <Button style={{ 'marginTop': '15px' }} disabled={!stripe || !clientSecret} variant="success" type="submit" size="sm">
