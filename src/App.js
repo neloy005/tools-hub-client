@@ -18,6 +18,7 @@ import Payment from './components/Payment/Payment';
 import MyProfile from './components/MyProfile/MyProfile';
 import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
 import AllUsers from './components/AllUsers/AllUsers';
+import RequireAdmin from './components/RequireAdmin/RequireAdmin';
 
 function App() {
   return (
@@ -44,12 +45,20 @@ function App() {
             <Dashboard></Dashboard>
           </RequireAuth>
         }>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddAReview></AddAReview>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
-          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='manageallorders' element={<ManageAllOrders></ManageAllOrders>}></Route>
-          <Route path='allusers' element={<AllUsers></AllUsers>}></Route>
+          <Route path='manageallorders' element={
+            <RequireAdmin>
+              <ManageAllOrders></ManageAllOrders>
+            </RequireAdmin>
+          }></Route>
+          <Route path='allusers' element={
+            <RequireAdmin>
+              <AllUsers></AllUsers>
+            </RequireAdmin>
+          }></Route>
         </Route>
       </Routes>
 

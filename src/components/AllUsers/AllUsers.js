@@ -34,7 +34,7 @@ const AllUsers = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     refetch();
-                    toast.success('Successfully made an admin');
+                    toast.success('Promotrd as admin successfully!');
                 }
 
             })
