@@ -41,7 +41,7 @@ const MyOrders = () => {
                     setOrders(remaining);
                 }
             })
-        handleClose();
+        // handleClose();
     }
     return (
         <div className='my-orders-div'>

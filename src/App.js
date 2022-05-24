@@ -19,6 +19,7 @@ import MyProfile from './components/MyProfile/MyProfile';
 import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
 import AllUsers from './components/AllUsers/AllUsers';
 import RequireAdmin from './components/RequireAdmin/RequireAdmin';
+import ManageProducts from './components/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -54,11 +55,19 @@ function App() {
               <ManageAllOrders></ManageAllOrders>
             </RequireAdmin>
           }></Route>
+
           <Route path='allusers' element={
             <RequireAdmin>
               <AllUsers></AllUsers>
             </RequireAdmin>
           }></Route>
+
+          <Route path='manageproducts' element={
+            <RequireAdmin>
+              <ManageProducts></ManageProducts>
+            </RequireAdmin>
+          }></Route>
+
         </Route>
       </Routes>
 
