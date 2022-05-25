@@ -5,13 +5,21 @@ import Tools from '../Tools/Tools';
 import allTools from '../../images/icons/tool-box.png';
 import totalSold from '../../images/icons/sold.png';
 import inStock from '../../images/icons/warehouse.png';
+import SingleReview from '../SingleReview/SingleReview';
 
 const Home = () => {
     const [tools, setTools] = useState([]);
+    const [reviews, setReviews] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/tools')
             .then(res => res.json())
             .then(data => setTools(data))
+    }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setReviews(data))
     }, [])
 
     let toolsArrayOfSix = [];
@@ -69,6 +77,15 @@ const Home = () => {
                         key={tool._id}
                         tool={tool}
                     ></Tools>)
+                }
+            </div>
+            <h2 className='tools-card-headline'>Customers reviews:</h2>
+            <div className='review-container'>
+                {
+                    reviews.map(singleReview => <SingleReview
+                        key={singleReview._id}
+                        singleReview={singleReview}
+                    ></SingleReview>)
                 }
             </div>
         </div>
