@@ -14,14 +14,14 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5000/tools')
             .then(res => res.json())
-            .then(data => setTools(data))
+            .then(data => setTools(data.reverse()))
     }, [])
     useEffect(() => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
-
+    // tools.reverse();
     let toolsArrayOfSix = [];
     let count = 0;
     for (const tool of tools) {
