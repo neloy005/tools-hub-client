@@ -62,4 +62,22 @@
         "available": 2000,
         "sold": 3000
     }
+],
+[
+    {
+        "name": "Our selling policy",
+        "description": "We try keep the quality of our tools up to mark. But can't order a single piece of tool. We use B2B selling systems. You can see the minimum order quantity in every product."
+    },
+    {
+        "name": "Our shipping policy",
+        "description": "We try to keep the shipping charge and as reliable as poosible. You have to order tools in bulk. An if you order products more then $1000 we will ship the tools for free."
+    },
+    {
+        "name": "Where we ship",
+        "description": "Currently we are shipping our tools to 5 different countries. Bangladesh, Srilanka, India, China and Pakistan"
+    },
+    {
+        "name": "Our return policy",
+        "description": "It's possibe that the tool might get damaged during the shipping process. At that situation we will provie a free replacement for your order and full refund if needed."
+    }
 ]

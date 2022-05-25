@@ -6,10 +6,14 @@ import allTools from '../../images/icons/tool-box.png';
 import totalSold from '../../images/icons/sold.png';
 import inStock from '../../images/icons/warehouse.png';
 import SingleReview from '../SingleReview/SingleReview';
+import { Accordion } from 'react-bootstrap';
+import faq from '../../images/faq.jpg';
+import SingleFaq from '../SingleFaq/SingleFaq';
 
 const Home = () => {
     const [tools, setTools] = useState([]);
     const [reviews, setReviews] = useState([]);
+    const [faqs, setFaqs] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/tools')
@@ -20,6 +24,11 @@ const Home = () => {
         fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
+    }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/faq')
+            .then(res => res.json())
+            .then(data => setFaqs(data))
     }, [])
     // tools.reverse();
     let toolsArrayOfSix = [];
@@ -87,6 +96,23 @@ const Home = () => {
                         singleReview={singleReview}
                     ></SingleReview>)
                 }
+            </div>
+
+            <h2 className='tools-card-headline'>Frequently asked questions (FAQ):</h2>
+            <div className='faq-container'>
+                <div><img src={faq} alt="" /></div>
+                <div>
+                    <Accordion flush>
+                        {
+                            faqs.map((faq, index) => <SingleFaq
+                                key={faq._id}
+                                index={index}
+                                faq={faq}
+                            ></SingleFaq>)
+                        }
+
+                    </Accordion>
+                </div>
             </div>
         </div>
     );

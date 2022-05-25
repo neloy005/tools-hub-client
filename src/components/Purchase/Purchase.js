@@ -108,14 +108,16 @@ const Purchase = () => {
     return (
         <div>
             <h2 className='login-heading'>Welcome to the purchase page:</h2>
-            <div>
-                <h2>{tool.name}</h2>
-                <p>{tool.description}</p>
-                <p>Minimum order {tool.minOrder}</p>
-                <p>Available {availableCount}</p>
-                <p>Per unit price {tool.price}</p>
+            <div className='purchase-container'>
+                <div className='purchase-tool-info'>
+                    <h2>{tool.name}</h2>
+                    <p>{tool.description}</p>
+                    <p>Minimum order {tool.minOrder}</p>
+                    <p>Available {availableCount}</p>
+                    <p>Per unit price {tool.price}</p>
+                </div>
                 <div>
-                    <form onSubmit={handlePlaceOrder}>
+                    <form className='login-container' onSubmit={handlePlaceOrder}>
 
                         <label>Name:</label><br />
                         <input type="text" value={user.displayName} /><br />
@@ -133,7 +135,7 @@ const Purchase = () => {
                         <label>Phone:</label><br />
                         <input type="number" name='phone' placeholder='Phone no' required /><br />
 
-                        <input disabled={isDisable} type="submit" value="Place order" />
+                        <input className='submit-btn' disabled={isDisable} type="submit" value="Place order" />
                     </form>
                 </div>
 
