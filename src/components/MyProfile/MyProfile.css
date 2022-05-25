@@ -1,0 +1,38 @@
+.user-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.personal-info {
+    border-right: 2px solid black;
+}
+
+.personal-info h2 {
+    font-weight: 250;
+    font-size: 23px;
+    margin-bottom: 24px;
+    text-align: left;
+    padding-left: 15px;
+    margin-top: 25px;
+}
+
+.user-info-input h2 {
+    padding-top: 15px;
+    font-weight: 250;
+}
+
+@media only screen and (max-width: 688px) {
+    .user-info {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .personal-info {
+        border: none;
+        border-bottom: 1px solid #000;
+    }
+
+    .personal-info h2 {
+        text-align: center;
+    }
+
+}
