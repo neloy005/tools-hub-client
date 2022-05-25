@@ -31,7 +31,7 @@ const ManageSingleTool = ({ tool, index, tools, setTools }) => {
             <td>{available}</td>
             <td>{price}</td>
             <td><Button variant="danger" size="sm" onClick={handleShow}>
-                Cancel
+                Delete
             </Button>
                 <Modal show={show} onHide={handleClose} animation={false}>
                     <Modal.Header closeButton>

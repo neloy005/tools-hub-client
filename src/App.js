@@ -20,6 +20,7 @@ import ManageAllOrders from './components/ManageAllOrders/ManageAllOrders';
 import AllUsers from './components/AllUsers/AllUsers';
 import RequireAdmin from './components/RequireAdmin/RequireAdmin';
 import ManageProducts from './components/ManageProducts/ManageProducts';
+import AddATool from './components/AddATool/AddATool';
 
 function App() {
   return (
@@ -65,6 +66,12 @@ function App() {
           <Route path='manageproducts' element={
             <RequireAdmin>
               <ManageProducts></ManageProducts>
+            </RequireAdmin>
+          }></Route>
+
+          <Route path='addtool' element={
+            <RequireAdmin>
+              <AddATool></AddATool>
             </RequireAdmin>
           }></Route>
 

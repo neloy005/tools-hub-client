@@ -1,0 +1,9 @@
+.add-tool-container {
+    padding: 10px;
+    padding-top: 20px;
+    box-shadow: 30px -34px 30px 55px rgba(154, 160, 185, .05), 5px 15px 40px rgba(166, 173, 201, .2);
+    border-radius: 15px;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+}
