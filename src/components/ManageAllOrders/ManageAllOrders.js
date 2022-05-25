@@ -1,33 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
+import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 import SingleOrder from '../SingleOrder/SingleOrder';
 
 const ManageAllOrders = () => {
-    const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/orders')
-            .then(res => res.json())
-            .then(data => setOrders(data))
-    }, [])
+    const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/orders', {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
 
-    // const handleDeleteOrder = id => {
-    //     console.log(id);
-    //     const url = `http://localhost:5000/order/${id}`;
-    //     fetch(url, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.deletedCount > 0) {
-    //                 toast.success('Deleted successfully!');
-    //                 const remaining = orders.filter(order => order._id !== id);
-    //                 setOrders(remaining);
-    //             }
-    //         })
-    //     handleClose();
-    // }
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -49,8 +38,8 @@ const ManageAllOrders = () => {
                             key={order._id}
                             index={index + 1}
                             order={order}
-                            setOrders={setOrders}
                             orders={orders}
+                            refetch={refetch}
                         ></SingleOrder>)
                     }
                 </tbody>

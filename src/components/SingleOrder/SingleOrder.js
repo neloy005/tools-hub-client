@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-const SingleOrder = ({ order, index, orders, setOrders }) => {
-    const [show, setShow] = useState(false);
+const SingleOrder = ({ order, index, orders, setOrders, refetch }) => {
 
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { email, toolName, quantity, toPay, status } = order;
+    const { _id, email, toolName, quantity, toPay, status } = order;
 
     const handleDeleteOrder = id => {
         console.log(id);
@@ -19,12 +19,31 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     toast.success('Deleted successfully!');
-                    const remaining = orders.filter(order => order._id !== id);
-                    setOrders(remaining);
+                    refetch();
                 }
             })
         handleClose();
     }
+
+    const handleStatusShipped = () => {
+        console.log(_id);
+        const statusCondition = { status: 'shipped' }
+        const url = `http://localhost:5000/order/${_id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(statusCondition)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                toast.success('Shipped successfully');
+                refetch();
+            })
+    }
+
     return (
         <tr>
             <td>{index}</td>
@@ -32,35 +51,32 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
             <td>{toolName}</td>
             <td>{quantity}</td>
             <td>${toPay}</td>
-            <td>{
-                status === 'pending' ?
-                    <Button variant="success" size="sm">
-                        {order.status}
+            <td>{status && <Button onClick={handleStatusShipped} variant="success" size="sm">
+                {status}
+            </Button>}
+                {!status && <div>
+                    <span style={{ 'color': 'white' }}>Unpaid </span>
+
+                    <Button variant="danger" size="sm" onClick={handleShow}>
+                        Cancel
                     </Button>
-                    :
-                    <div>
-                        <span style={{ 'color': 'white' }}>Unpaid </span>
+                    <Modal show={show} onHide={order} animation={false}>
+                        <Modal.Header>
+                            <Modal.Title>Are you sure to delete the order?</Modal.Title>
+                        </Modal.Header>
 
-                        <Button variant="danger" size="sm" onClick={handleShow}>
-                            Cancel
-                        </Button>
-                        <Modal show={show} onHide={order} animation={false}>
-                            <Modal.Header>
-                                <Modal.Title>Are you sure to delete the order?</Modal.Title>
-                            </Modal.Header>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Close
+                            </Button>
+                            <Button variant="danger" onClick={() => handleDeleteOrder(order._id)}>
+                                Yes
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </div>}
+            </td>
 
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="danger" onClick={() => handleDeleteOrder(order._id)}>
-                                    Yes
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
-
-            }</td>
         </tr>
     );
 };
