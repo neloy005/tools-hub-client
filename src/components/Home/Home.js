@@ -9,11 +9,13 @@ import SingleReview from '../SingleReview/SingleReview';
 import { Accordion } from 'react-bootstrap';
 import faq from '../../images/faq.jpg';
 import SingleFaq from '../SingleFaq/SingleFaq';
+import SingleBuyer from '../SingleBuyer/SingleBuyer';
 
 const Home = () => {
     const [tools, setTools] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [faqs, setFaqs] = useState([]);
+    const [buyers, setBuyers] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/tools')
@@ -29,6 +31,11 @@ const Home = () => {
         fetch('http://localhost:5000/faq')
             .then(res => res.json())
             .then(data => setFaqs(data))
+    }, [])
+    useEffect(() => {
+        fetch('http://localhost:5000/buyers')
+            .then(res => res.json())
+            .then(data => setBuyers(data))
     }, [])
     // tools.reverse();
     let toolsArrayOfSix = [];
@@ -86,6 +93,15 @@ const Home = () => {
                         key={tool._id}
                         tool={tool}
                     ></Tools>)
+                }
+            </div>
+            <h2 className='tools-card-headline'>Our Top Buyers:</h2>
+            <div className='buyer-container'>
+                {
+                    buyers.map(buyer => <SingleBuyer
+                        key={buyer._id}
+                        buyer={buyer}
+                    ></SingleBuyer>)
                 }
             </div>
             <h2 className='tools-card-headline'>Customers reviews:</h2>

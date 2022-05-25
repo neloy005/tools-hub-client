@@ -80,4 +80,27 @@
         "name": "Our return policy",
         "description": "It's possibe that the tool might get damaged during the shipping process. At that situation we will provie a free replacement for your order and full refund if needed."
     }
+],
+[
+    {
+        "name": "Md. Adeel Khan",
+        "shop": "khan and Co.",
+        "from": "Bangladesh",
+        "image": "https://i.ibb.co/ryHz80b/buyer2.jpg",
+        "toolBought": 1300
+    },
+    {
+        "name": "Rakibul Hasan",
+        "shop": "SA Group",
+        "from": "India",
+        "image": "https://i.ibb.co/Jdx0m9Z/buyer3.jpg",
+        "toolBought": 1100
+    },
+    {
+        "name": "Md. Adeel Khan",
+        "shop": "Hardware kings",
+        "from": "Pakistan",
+        "image": "https://i.ibb.co/Tg7Dzh2/buyer1.jpg",
+        "toolBought": 1000
+    }
 ]
