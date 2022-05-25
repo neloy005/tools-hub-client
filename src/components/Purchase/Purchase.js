@@ -112,9 +112,12 @@ const Purchase = () => {
                 <div className='purchase-tool-info'>
                     <h2>{tool.name}</h2>
                     <p>{tool.description}</p>
-                    <p>Minimum order {tool.minOrder}</p>
-                    <p>Available {availableCount}</p>
-                    <p>Per unit price {tool.price}</p>
+                    <hr />
+                    <div className='key-tool-info'>
+                        <p>Minimum order <span style={{ 'color': 'tomato' }}>{tool.minOrder}</span> pcs</p>
+                        <p>Available <span style={{ 'color': 'tomato' }}>{availableCount}</span> pcs</p>
+                        <p>Per unit price <span style={{ 'color': 'tomato' }}>${tool.price}</span></p>
+                    </div>
                 </div>
                 <div>
                     <form className='login-container' onSubmit={handlePlaceOrder}>
