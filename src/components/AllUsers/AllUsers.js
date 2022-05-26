@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://enigmatic-wildwood-66605.herokuapp.com/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,10 +15,11 @@ const AllUsers = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-
+    //...............................................
+    //Make a new admin
+    //...............................................
     const handleMakingAdmin = (email) => {
-        console.log(email);
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://enigmatic-wildwood-66605.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +32,6 @@ const AllUsers = () => {
                 return res.json()
             })
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     refetch();
                     toast.success('Promotrd as admin successfully!');

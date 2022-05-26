@@ -16,7 +16,7 @@ const Purchase = () => {
     const [availableCount, setAvailableCount] = useState(0);
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/tool/${id}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -32,13 +32,11 @@ const Purchase = () => {
                     setError('Not enough item to purchase')
                     setIsDisable(true);
                 }
-                // console.log(inputValue);
             });
     }, [])
     const monitorOrderQuantity = event => {
         setInputValue(event.target.value);
         if (event.target.value < tool.minOrder) {
-            console.log('disable it');
             setIsDisable(true);
             setError("Order must be more than minimum order and can't exceed available quantity");
             return;
@@ -70,9 +68,8 @@ const Purchase = () => {
             toPay: toPay,
             isPaid: false
         }
-        console.log(order);
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/order', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -90,7 +87,7 @@ const Purchase = () => {
         // Upding available quantity in DB 
         //...................................
         const updatedAvailable = { available: newAvailableCount };
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/tool/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

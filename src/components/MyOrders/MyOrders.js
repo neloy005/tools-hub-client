@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Table, Modal } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import MySingleOrder from '../MySingleOrder/MySingleOrder';
-import './MyOrders.css';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
+        //...........................................
+        //getting specific user info from db by email
+        //...........................................
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`https://enigmatic-wildwood-66605.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const MyOrders = () => {
     }, [user])
 
     return (
-        <div className='my-orders-div'>
+        <div style={{ 'minHeight': '650px' }} className='my-orders-div'>
             <h3>Hello {user.displayName}, you've {orders.length} orders so far!</h3>
             <div className='table-container'>
                 <Table responsive striped bordered hover variant="light">

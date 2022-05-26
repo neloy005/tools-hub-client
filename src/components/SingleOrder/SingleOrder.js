@@ -10,8 +10,7 @@ const SingleOrder = ({ order, index, orders, setOrders, refetch }) => {
     const { _id, email, toolName, quantity, toPay, status } = order;
 
     const handleDeleteOrder = id => {
-        console.log(id);
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/order/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -26,9 +25,8 @@ const SingleOrder = ({ order, index, orders, setOrders, refetch }) => {
     }
 
     const handleStatusShipped = () => {
-        console.log(_id);
         const statusCondition = { status: 'shipped' }
-        const url = `http://localhost:5000/order/${_id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/order/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -38,7 +36,6 @@ const SingleOrder = ({ order, index, orders, setOrders, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
                 toast.success('Shipped successfully');
                 refetch();
             })

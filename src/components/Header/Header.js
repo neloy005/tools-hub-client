@@ -9,7 +9,6 @@ import './Header.css';
 const Header = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
-    console.log(user);
 
     const handleSignOut = () => {
         navigate('/');
@@ -19,7 +18,7 @@ const Header = () => {
     return (
         <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">Tools-hub 🛠️</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Tools-hub 🛠️</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">

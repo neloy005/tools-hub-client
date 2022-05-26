@@ -10,10 +10,13 @@ const ManageSingleTool = ({ tool, index, tools, setTools }) => {
     const { _id, name, available, price } = tool;
 
     const handleDeleteTool = id => {
-        console.log(id);
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/tool/${id}`;
         fetch(url, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+
         })
             .then(res => res.json())
             .then(data => {

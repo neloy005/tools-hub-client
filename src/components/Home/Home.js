@@ -18,22 +18,22 @@ const Home = () => {
     const [buyers, setBuyers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTools(data.reverse()))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/faq')
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/faq')
             .then(res => res.json())
             .then(data => setFaqs(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/buyers')
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/buyers')
             .then(res => res.json())
             .then(data => setBuyers(data))
     }, [])

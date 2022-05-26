@@ -11,8 +11,7 @@ const MySingleOrder = ({ order, index, orders, setOrders }) => {
     const { toolName, quantity, toPay, isPaid } = order;
 
     const handleDelete = id => {
-        console.log(id);
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://enigmatic-wildwood-66605.herokuapp.com/order/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

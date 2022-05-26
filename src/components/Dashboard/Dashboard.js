@@ -19,6 +19,8 @@ const Dashboard = () => {
                 {
                     admin ?
                         <>
+                            <h3 style={{ 'color': 'red' }}>Admin</h3>
+                            <hr />
                             <Link to='/dashboard'>My profile</Link><hr />
                             <Link to='/dashboard/manageallorders'>Manage Orders</Link><hr />
                             <Link to='/dashboard/allusers'>All users</Link><hr />

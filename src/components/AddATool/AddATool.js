@@ -14,9 +14,10 @@ const AddATool = () => {
         const sold = 0;
 
         const tool = { name, image, description, price: price, minOrder: minOrder, available: available, sold };
-        console.log(tool);
-
-        fetch('http://localhost:5000/tool', {
+        //..........................................
+        //Add a new tool to the db
+        //..........................................
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/tool', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

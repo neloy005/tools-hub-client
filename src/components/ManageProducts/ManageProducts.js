@@ -4,8 +4,11 @@ import { toast } from 'react-toastify';
 import ManageSingleTool from '../ManageSingleTool/ManageSingleTool';
 const ManageProducts = () => {
     const [tools, setTools] = useState([]);
+    //....................................
+    //Get all tool info from db
+    //....................................
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])

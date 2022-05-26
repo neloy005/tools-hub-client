@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Modal, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
 import SingleOrder from '../SingleOrder/SingleOrder';
 
 const ManageAllOrders = () => {
-
-    const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/orders', {
+    //.....................................
+    //Get all the order info from db
+    //.....................................
+    const { data: orders, isLoading, refetch } = useQuery('users', () => fetch('https://enigmatic-wildwood-66605.herokuapp.com/orders', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
     }
 
     return (
-        <div>
+        <div style={{ 'minHeight': '650px' }}>
             <h2>Total {orders.length} orders on the list</h2>
             <Table responsive striped bordered hover variant="dark">
                 <thead>

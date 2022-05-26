@@ -8,8 +8,10 @@ import './MyProfile.css';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-
-    const { data: userInfo, isLoading, refetch } = useQuery(['users', user], () => fetch(`http://localhost:5000/user?email=${user.email}`, {
+    //..................................
+    // getting my profile from into db 
+    //..................................
+    const { data: userInfo, isLoading, refetch } = useQuery(['users', user], () => fetch(`https://enigmatic-wildwood-66605.herokuapp.com/user?email=${user.email}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +21,6 @@ const MyProfile = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(user);
 
     const updateMyProfile = (event) => {
         event.preventDefault();
@@ -30,9 +31,10 @@ const MyProfile = () => {
         const linkedln = event.target.linkedln.value;
 
         const myProfile = { fullName, education, location, phone, linkedln };
-        console.log(myProfile);
-
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        //..............................
+        // Putting my profile info into db 
+        //..................................
+        fetch(`https://enigmatic-wildwood-66605.herokuapp.com/user/${user.email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -43,7 +45,6 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 refetch();
                 toast.success('Your info updated successfully!')
             })

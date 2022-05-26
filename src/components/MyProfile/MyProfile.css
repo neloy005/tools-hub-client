@@ -5,6 +5,7 @@
 
 .personal-info {
     border-right: 2px solid black;
+    margin-left: 60px;
 }
 
 .personal-info h2 {
@@ -29,6 +30,7 @@
     .personal-info {
         border: none;
         border-bottom: 1px solid #000;
+        margin: 10px;
     }
 
     .personal-info h2 {

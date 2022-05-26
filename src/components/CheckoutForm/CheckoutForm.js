@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, toPay, name, email } = order;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -46,7 +46,6 @@ const CheckoutForm = ({ order }) => {
         })
         if (error) {
             setCardErr(error.message);
-            console.log(error);
         }
         else {
             setCardErr('');
@@ -71,7 +70,6 @@ const CheckoutForm = ({ order }) => {
         else {
             setCardErr('');
             setTransectionId(paymentIntent.id)
-            console.log(paymentIntent);
             setSuccess('Payment completed successfully!');
 
             //store payment of DB
@@ -80,7 +78,7 @@ const CheckoutForm = ({ order }) => {
                 transectionId: paymentIntent.id,
                 status: 'pending'
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://enigmatic-wildwood-66605.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -91,7 +89,6 @@ const CheckoutForm = ({ order }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     toast.success('Your payment is successfull!')
                 })
         }

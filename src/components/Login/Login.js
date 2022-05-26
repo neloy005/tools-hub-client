@@ -41,7 +41,6 @@ const Login = () => {
         errorMessage = <p style={{ 'color': 'red' }}>Error: {error?.message}{googleError?.message}</p>
     }
     const onSubmit = data => {
-        console.log(data);
         const email = data.email;
         const password = data.password;
         signInWithEmailAndPassword(email, password);

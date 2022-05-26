@@ -32,9 +32,11 @@ const AddAReview = () => {
         const stars = event.target.stars.value;
         const review = event.target.review.value;
         const reviewObj = { name, stars, review };
-        console.log(reviewObj);
 
-        fetch('http://localhost:5000/review', {
+        //..................................
+        //Post user review to db
+        //..................................
+        fetch('https://enigmatic-wildwood-66605.herokuapp.com/review', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
