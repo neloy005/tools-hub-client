@@ -54,9 +54,9 @@ const AddAReview = () => {
             <h2>Add Review</h2>
             <div className='give-review-container'>
                 <form onSubmit={handleAddingReview}>
-                    <span>Review by: </span><input type="text" name='name' placeholder='Your name' value={user.displayName} disabled /> <br /> <br />
+                    <span>Review by: <br /></span><input type="text" name='name' placeholder='Your name' value={user.displayName} disabled /> <br /> <br />
                     <span>Give </span><Button onClick={handleDecrease} variant="danger">-</Button>
-                    <input className='btn-counter' type="number" name='stars' value={ratingValue} />
+                    <input className='btn-counter' type="number" name='stars' value={ratingValue} disabled />
                     <Button onClick={handleIncrease} variant="success">+</Button> <span> stars</span> <br /><br />
                     <textarea type="text" name='review' placeholder='Your review' required /> <br /> <br />
                     <input className='submit-btn' type="submit" value="Post" />

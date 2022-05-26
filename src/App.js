@@ -21,6 +21,7 @@ import AllUsers from './components/AllUsers/AllUsers';
 import RequireAdmin from './components/RequireAdmin/RequireAdmin';
 import ManageProducts from './components/ManageProducts/ManageProducts';
 import AddATool from './components/AddATool/AddATool';
+import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>

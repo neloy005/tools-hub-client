@@ -1,0 +1,9 @@
+.question-div {
+    margin: 30px;
+}
+
+.question-div div {
+    padding: 10px;
+    border: .2px solid gray;
+    margin-bottom: 30px;
+}

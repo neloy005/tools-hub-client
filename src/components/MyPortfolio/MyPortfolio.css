@@ -1,0 +1,22 @@
+.pf-container {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    box-shadow: 4px -9px 10px rgba(154, 160, 185, .05), 5px 15px 40px rgba(166, 173, 201, .2);
+}
+
+.pf-container img {
+    width: 50%;
+    margin: auto;
+}
+
+.basic-info {
+    text-align: left;
+    padding: 15px;
+}
+
+.basic-info h4 {
+    font-weight: 250;
+    font-size: ;
+}

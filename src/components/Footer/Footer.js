@@ -10,8 +10,9 @@ const Footer = () => {
             <h3>Developed by Arif</h3>
             <p>All rights preserved by &copy;Md. Arif Istiek (Neloy) 2022</p>
             <div className='footer-link-container'>
-                <Link to='/blog'>Blogs</Link>
                 <Link to='/'>Home</Link>
+                <Link to='/blogs'>Blogs</Link>
+                <Link to='/portfolio'>About</Link>
             </div>
             <div>
                 <a href="https://www.facebook.com/profile.php?id=100018011586420" target="_blank"><img src={fb} alt="" /></a>
